@@ -10,6 +10,7 @@ Source0: %{name}-%{version}.tar.bz2
 License: GPL
 Group: Development/Other
 Url: http://wiki.mandriva.com/Tools/DrakX
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: kernel
 BuildRequires: ldetect-devel >= 0.7.19
 BuildRequires: ldetect-lst >= 0.1.199
