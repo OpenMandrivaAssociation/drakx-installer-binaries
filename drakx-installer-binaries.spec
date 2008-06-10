@@ -1,6 +1,6 @@
 %define name drakx-installer-binaries
 %define version 1.28
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary: DrakX binaries
 Name: %{name}
@@ -10,7 +10,7 @@ Source0: %{name}-%{version}.tar.bz2
 License: GPL
 Group: Development/Other
 Url: http://wiki.mandriva.com/Tools/DrakX
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: kernel
 BuildRequires: ldetect-devel >= 0.7.19
 BuildRequires: ldetect-lst >= 0.1.222
