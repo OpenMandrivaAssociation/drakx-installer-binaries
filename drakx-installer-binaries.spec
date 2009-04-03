@@ -1,5 +1,5 @@
 %define name drakx-installer-binaries
-%define version 1.36
+%define version 1.37
 %define release %mkrel 1
 
 Summary: DrakX binaries
@@ -12,7 +12,7 @@ Group: Development/Other
 Url: http://wiki.mandriva.com/Tools/DrakX
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: kernel
-BuildRequires: ldetect-devel >= 0.7.19
+BuildRequires: ldetect-devel >= 0.8.1
 BuildRequires: ldetect-lst >= 0.1.222
 BuildRequires: ldetect-lst-devel
 BuildRequires: dietlibc-devel
