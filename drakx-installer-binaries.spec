@@ -1,6 +1,6 @@
 %define name drakx-installer-binaries
 %define version 1.39
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: DrakX binaries
 Name: %{name}
