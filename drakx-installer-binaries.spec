@@ -1,6 +1,6 @@
 %define name drakx-installer-binaries
 %define version 1.41
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary: DrakX binaries
 Name: %{name}
@@ -8,6 +8,7 @@ Version: %{version}
 Release: %{release}
 Source0: %{name}-%{version}.tar.bz2
 Patch0: drakx-installer-binaries-1.41-printf-handle-x86_64.patch
+Patch1: drakx-installer-binaries-1.41-virtio-use-subdevice.patch
 License: GPL
 Group: Development/Other
 Url: http://wiki.mandriva.com/Tools/DrakX
@@ -39,6 +40,7 @@ probe-modules tool needed to build Mandriva live
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p0
 
 %build
 make -C mdk-stage1
