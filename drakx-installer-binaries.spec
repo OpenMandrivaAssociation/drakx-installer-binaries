@@ -17,7 +17,7 @@ BuildRequires: ldetect-lst >= 0.1.222
 BuildRequires: ldetect-lst-devel
 BuildRequires: dietlibc-devel
 BuildRequires: modprobe-devel
-BuildRequires: pciutils-devel
+BuildRequires: pciutils-devel >= 3.1.7-2
 BuildRequires: zlib-devel
 BuildRequires: flex byacc pciutils-devel
 
