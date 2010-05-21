@@ -1,6 +1,6 @@
 %define name drakx-installer-binaries
 %define version 1.46
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: DrakX binaries
 Name: %{name}
@@ -15,7 +15,7 @@ BuildRequires: kernel
 BuildRequires: ldetect-devel >= 0.9.1
 BuildRequires: ldetect-lst >= 0.1.222
 BuildRequires: ldetect-lst-devel
-BuildRequires: dietlibc-devel
+BuildRequires: dietlibc-devel >= 0.32-4.20090113.4
 BuildRequires: modprobe-devel
 BuildRequires: pciutils-devel >= 3.1.7-2
 BuildRequires: zlib-devel
