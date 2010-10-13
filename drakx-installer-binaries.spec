@@ -7,6 +7,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: %{name}-%{version}.tar.bz2
+Patch0: drakx-installer-binaries-1.47-fix-build.diff
 License: GPL
 Group: Development/Other
 Url: http://wiki.mandriva.com/Tools/DrakX
@@ -37,6 +38,8 @@ probe-modules tool needed to build Mandriva live
 
 %prep
 %setup -q
+# (tv) temporary disable -Werror in order to fix build:
+%patch0 -p1
 
 %build
 make -C mdk-stage1
