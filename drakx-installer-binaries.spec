@@ -45,10 +45,10 @@ probe-modules tool needed to build Mandriva live
 make -C mdk-stage1
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 cd mdk-stage1
-dest=$RPM_BUILD_ROOT%{_libdir}/%name
+dest=%{buildroot}%{_libdir}/%name
 mkdir -p $dest
 install init stage1 pppd pppoe rescue-gui dhcp-client probe-modules $dest
 if [ -e pcmcia/pcmcia_probe.o ]; then
@@ -57,7 +57,7 @@ fi
 
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
