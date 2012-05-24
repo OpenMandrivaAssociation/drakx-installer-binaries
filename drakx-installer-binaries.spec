@@ -1,39 +1,34 @@
-%define name drakx-installer-binaries
-%define version 1.51
-%define release %mkrel 2
-
-Summary: DrakX binaries
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: %{name}-%{version}.tar.bz2
-Patch0: drakx-installer-binaries-1.47-fix-build.diff
-License: GPL
-Group: Development/Other
-Url: http://wiki.mandriva.com/Tools/DrakX
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: kernel
-BuildRequires: ldetect-devel >= 0.9.1
-BuildRequires: ldetect-lst >= 0.1.222
-BuildRequires: ldetect-lst-devel
-BuildRequires: dietlibc-devel >= 0.32-4.20090113.4
-BuildRequires: modprobe-devel
-BuildRequires: pciutils-devel >= 3.1.7-2
-BuildRequires: zlib-devel
-BuildRequires: flex byacc pciutils-devel
+Summary:	DrakX binaries
+Name:		drakx-installer-binaries
+Version:	1.51
+Release:	2
+Source0:	%{name}-%{version}.tar.bz2
+Patch0:		drakx-installer-binaries-1.47-fix-build.diff
+License:	GPL
+Group:		Development/Other
+Url:		http://wiki.mandriva.com/Tools/DrakX
+BuildRequires:	kernel
+BuildRequires:	ldetect-devel >= 0.9.1
+BuildRequires:	ldetect-lst >= 0.1.222
+BuildRequires:	ldetect-lst-devel
+BuildRequires:	dietlibc-devel >= 0.32-4.20090113.4
+BuildRequires:	modprobe-devel
+BuildRequires:	pciutils-devel >= 3.1.7-2
+BuildRequires:	zlib-devel
+BuildRequires:	flex byacc pciutils-devel
 
 #- not requiring the same version otherwise releasing drakx-installer-images takes a day
 #- (restore this when the build system can build a pack of packages)
-Requires: ldetect-lst
+Requires:	ldetect-lst
 
 %description
 binaries needed to build Mandriva installer (DrakX)
 
-%package probe
+%package	probe
 Summary: DrakX probe-modules tool
 Group: Development/Other
 
-%description probe
+%description	probe
 probe-modules tool needed to build Mandriva live
 
 %prep
@@ -45,8 +40,6 @@ probe-modules tool needed to build Mandriva live
 make -C mdk-stage1
 
 %install
-rm -rf %{buildroot}
-
 cd mdk-stage1
 dest=%{buildroot}%{_libdir}/%name
 mkdir -p $dest
@@ -55,15 +48,9 @@ if [ -e pcmcia/pcmcia_probe.o ]; then
   install -m 644 pcmcia/pcmcia_probe.o $dest
 fi
 
-
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %exclude %{_libdir}/%name/probe-modules
 %{_libdir}/%name
 
 %files probe
-%defattr(-,root,root)
 %{_libdir}/%name/probe-modules
