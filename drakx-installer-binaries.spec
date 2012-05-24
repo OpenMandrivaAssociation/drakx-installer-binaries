@@ -38,7 +38,7 @@ make -C mdk-stage1
 
 %install
 cd mdk-stage1
-dest=%{buildroot}%{_libdir}/%name
+dest=%{buildroot}%{_libdir}/%{name}
 mkdir -p $dest
 install init stage1 pppd pppoe rescue-gui dhcp-client probe-modules $dest
 if [ -e pcmcia/pcmcia_probe.o ]; then
@@ -46,8 +46,8 @@ if [ -e pcmcia/pcmcia_probe.o ]; then
 fi
 
 %files
-%exclude %{_libdir}/%name/probe-modules
-%{_libdir}/%name
+%exclude %{_libdir}/%{name}/probe-modules
+%{_libdir}/%{name}
 
 %files probe
-%{_libdir}/%name/probe-modules
+%{_libdir}/%{name}/probe-modules
