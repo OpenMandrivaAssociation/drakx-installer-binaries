@@ -1,3 +1,5 @@
+%bcond_with	diet
+
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
 Version:	1.52
@@ -12,8 +14,7 @@ BuildRequires:	ldetect-lst >= 0.1.222
 BuildRequires:	ldetect-lst-devel
 %if %{with diet}
 BuildRequires:	dietlibc-devel
-%endif
-%if %{with uclibc}
+%else
 BuildRequires:	uClibc-devel >= 0.9.33.2-3
 %endif
 BuildRequires:	kmod-devel
@@ -43,7 +44,11 @@ probe-modules tool needed to build Mandriva live
 %setup -q
 
 %build
-make -C mdk-stage1
+%if %{with diet}
+make -C mdk-stage1 LIBC=dietlibc
+%else
+make -C mdk-stage1 LIBC=uclibc
+%endif
 
 %install
 cd mdk-stage1
