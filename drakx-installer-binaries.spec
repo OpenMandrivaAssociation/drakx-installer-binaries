@@ -25,8 +25,8 @@ Requires:	ldetect-lst
 binaries needed to build Mandriva installer (DrakX)
 
 %package	probe
-Summary: DrakX probe-modules tool
-Group: Development/Other
+Summary:	DrakX probe-modules tool
+Group:		Development/Other
 
 %description	probe
 probe-modules tool needed to build Mandriva live
@@ -45,7 +45,7 @@ dest=%{buildroot}%{_libdir}/%name
 mkdir -p $dest
 install init stage1 pppd pppoe rescue-gui dhcp-client probe-modules $dest
 if [ -e pcmcia/pcmcia_probe.o ]; then
-  install -m 644 pcmcia/pcmcia_probe.o $dest
+ 	install -m 644 pcmcia/pcmcia_probe.o $dest
 fi
 
 %files
