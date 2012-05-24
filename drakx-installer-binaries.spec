@@ -4,7 +4,7 @@ Version:	1.51
 Release:	2
 Source0:	%{name}-%{version}.tar.bz2
 Patch0:		drakx-installer-binaries-1.47-fix-build.diff
-License:	GPL
+License:	GPLv2+
 Group:		Development/Other
 Url:		http://wiki.mandriva.com/Tools/DrakX
 BuildRequires:	kernel
