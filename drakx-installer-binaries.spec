@@ -1,8 +1,10 @@
 %bcond_with	diet
 
+%define	family	drakx-installer
+
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
-Version:	1.53
+Version:	1.54
 Release:	1
 Source0:	%{name}-%{version}.tar.xz
 License:	GPLv2+
@@ -45,23 +47,22 @@ probe-modules tool needed to build Mandriva live
 
 %build
 %if %{with diet}
-make -C mdk-stage1 LIBC=dietlibc
+%make -C mdk-stage1 LIBC=dietlibc LDFLAGS="%{ldflags}"
 %else
-make -C mdk-stage1 LIBC=uclibc
+%make -C mdk-stage1 LIBC=uclibc CFLAGS="%{uclibc_cflags}" LDFLAGS="%{ldflags}"
 %endif
 
 %install
-cd mdk-stage1
-dest=%{buildroot}%{_libdir}/%{name}
-mkdir -p $dest
-install init stage1 rescue-gui dhcp-client probe-modules $dest
-if [ -e pcmcia/pcmcia_probe.o ]; then
- 	install -m 644 pcmcia/pcmcia_probe.o $dest
-fi
+%makeinstall_std -C mdk-stage1
 
 %files
-%exclude %{_libdir}/%{name}/probe-modules
-%{_libdir}/%{name}
+%dir %{_libdir}/%{family}
+%dir %{_libdir}/%{family}/binaries
+%{_libdir}/%{family}/binaries/init
+%{_libdir}/%{family}/binaries/stage1
+%{_libdir}/%{family}/binaries/rescue-gui
+%{_libdir}/%{family}/binaries/dhcp-client
+%{_libdir}/%{family}/binaries/pcmcia_probe.o
 
 %files probe
-%{_libdir}/%{name}/probe-modules
+%{_libdir}/%{family}/binaries/probe-modules
