@@ -56,6 +56,7 @@ probe-modules tool needed to build Mandriva live
 %makeinstall_std -C mdk-stage1
 
 %files
+%doc mdk-stage1/NEWS
 %dir %{_libdir}/%{family}
 %dir %{_libdir}/%{family}/binaries
 %{_libdir}/%{family}/binaries/init
