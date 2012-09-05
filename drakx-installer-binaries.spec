@@ -4,7 +4,7 @@
 
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
-Version:	1.57
+Version:	1.59
 Release:	1
 Source0:	%{name}-%{version}.tar.xz
 License:	GPLv2+
@@ -59,11 +59,13 @@ probe-modules tool needed to build Mandriva live
 %doc mdk-stage1/NEWS
 %dir %{_libdir}/%{family}
 %dir %{_libdir}/%{family}/binaries
-%{_libdir}/%{family}/binaries/init
 %{_libdir}/%{family}/binaries/stage1
 %{_libdir}/%{family}/binaries/rescue-gui
 %{_libdir}/%{family}/binaries/dhcp-client
+%{_libdir}/%{family}/binaries/drvinst
+%{_libdir}/%{family}/binaries/lspcidrake
 %{_libdir}/%{family}/binaries/pcmcia_probe.o
+
 
 %files probe
 %{_libdir}/%{family}/binaries/probe-modules
