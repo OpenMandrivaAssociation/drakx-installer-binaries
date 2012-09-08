@@ -31,16 +31,10 @@ BuildRequires:	pkgconfig(liblzma)
 #- not requiring the same version otherwise releasing drakx-installer-images takes a day
 #- (restore this when the build system can build a pack of packages)
 Requires:	ldetect-lst
+%rename		%{name}-probe
 
 %description
-binaries needed to build Mandriva installer (DrakX)
-
-%package	probe
-Summary:	DrakX probe-modules tool
-Group:		Development/Other
-
-%description	probe
-probe-modules tool needed to build Mandriva live
+Binaries needed to build the Mandriva Linux installer (DrakX).
 
 %prep
 %setup -q
@@ -65,7 +59,4 @@ probe-modules tool needed to build Mandriva live
 %{_libdir}/%{family}/binaries/drvinst
 %{_libdir}/%{family}/binaries/lspcidrake
 %{_libdir}/%{family}/binaries/pcmcia_probe.o
-
-
-%files probe
 %{_libdir}/%{family}/binaries/probe-modules
