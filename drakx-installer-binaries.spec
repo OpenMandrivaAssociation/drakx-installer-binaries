@@ -13,7 +13,7 @@ BuildRequires:	ldetect-devel >= 0.9.1
 BuildRequires:	ldetect-lst >= 0.1.222
 BuildRequires:	ldetect-lst-devel
 BuildRequires:	uClibc-devel >= 0.9.33.2-3
-BuildRequires:	uClibc++-devel
+BuildRequires:	uClibc++
 BuildRequires:	pkgconfig(libkmod)
 BuildRequires:	sysfsutils-devel
 BuildRequires:	newt-devel
