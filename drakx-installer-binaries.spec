@@ -1,10 +1,8 @@
-%bcond_with	diet
-
 %define	family	drakx-installer
 
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
-Version:	1.60
+Version:	2.0
 Release:	1
 Source0:	%{name}-%{version}.tar.xz
 License:	GPLv2+
@@ -14,17 +12,13 @@ BuildRequires:	kernel
 BuildRequires:	ldetect-devel >= 0.9.1
 BuildRequires:	ldetect-lst >= 0.1.222
 BuildRequires:	ldetect-lst-devel
-%if %{with diet}
-BuildRequires:	dietlibc-devel
-%else
 BuildRequires:	uClibc-devel >= 0.9.33.2-3
-%endif
-BuildRequires:	kmod-devel
-BuildRequires:	sysfsutils-static-devel
-BuildRequires:	slang-static-devel
+BuildRequires:	uClibc++-devel
+BuildRequires:	pkgconfig(libkmod)
+BuildRequires:	sysfsutils-devel
 BuildRequires:	newt-devel
 BuildRequires:	pkgconfig(libpci)
-BuildRequires:	zlib-devel
+BuildRequires:	pkgconfig(zlib)
 BuildRequires:	flex byacc
 BuildRequires:	pkgconfig(liblzma)
 
@@ -40,11 +34,7 @@ Binaries needed to build the Mandriva Linux installer (DrakX).
 %setup -q
 
 %build
-%if %{with diet}
-%make -C mdk-stage1 LIBC=dietlibc LDFLAGS="%{ldflags}"
-%else
-%make -C mdk-stage1 LIBC=uclibc CFLAGS="%{uclibc_cflags}" LDFLAGS="%{ldflags}"
-%endif
+%make -C mdk-stage1 LIBC=uclibc OPTFLAGS="%{uclibc_cxxflags}"
 
 %install
 %makeinstall_std -C mdk-stage1
