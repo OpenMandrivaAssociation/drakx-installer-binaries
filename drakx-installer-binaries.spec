@@ -16,11 +16,12 @@ BuildRequires:	uClibc-devel >= 0.9.33.2-3
 BuildRequires:	uClibc++
 BuildRequires:	pkgconfig(libkmod)
 BuildRequires:	sysfsutils-devel
-BuildRequires:	newt-devel
+BuildRequires:	newt-devel >= 0.52.14-6
 BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	flex byacc
 BuildRequires:	pkgconfig(liblzma)
+
 
 #- not requiring the same version otherwise releasing drakx-installer-images takes a day
 #- (restore this when the build system can build a pack of packages)
