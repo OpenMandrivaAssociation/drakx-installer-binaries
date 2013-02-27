@@ -21,7 +21,7 @@ BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	flex byacc
 BuildRequires:	pkgconfig(liblzma)
-
+BuildRequires:	grub2
 
 #- not requiring the same version otherwise releasing drakx-installer-images takes a day
 #- (restore this when the build system can build a pack of packages)
