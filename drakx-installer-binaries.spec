@@ -2,7 +2,7 @@
 
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
-Version:	2.0
+Version:	2.2
 Release:	1
 Source0:	%{name}-%{version}.tar.xz
 License:	GPLv2+
@@ -22,6 +22,9 @@ BuildRequires:	pkgconfig(zlib)
 BuildRequires:	flex byacc
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	grub2
+BuildRequires:	gpm uclibc-gpm
+BuildRequires:	termcap
+BuildRequires:	linux_logo
 
 #- not requiring the same version otherwise releasing drakx-installer-images takes a day
 #- (restore this when the build system can build a pack of packages)
