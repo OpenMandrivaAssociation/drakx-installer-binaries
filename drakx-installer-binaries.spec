@@ -38,7 +38,8 @@ Binaries needed to build the Mandriva Linux installer (DrakX).
 %setup -q
 
 %build
-%make -C mdk-stage1 LIBC=uclibc OPTFLAGS="%{uclibc_cxxflags}"
+# default -gdwarf-4 breaks with -fwhole-program
+%make -C mdk-stage1 LIBC=uclibc OPTFLAGS="%{uclibc_cxxflags} -gdwarf-3"
 
 %install
 %makeinstall_std -C mdk-stage1
