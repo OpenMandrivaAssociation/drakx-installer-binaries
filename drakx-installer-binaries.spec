@@ -25,7 +25,7 @@ BuildRequires:	grub2
 BuildRequires:	gpm uclibc-gpm
 BuildRequires:	termcap
 BuildRequires:	linux_logo
-BuildRequires:  perl-MDK-Common-devel
+BuildRequires:  perl-MDK-Common
 
 #- not requiring the same version otherwise releasing drakx-installer-images takes a day
 #- (restore this when the build system can build a pack of packages)
