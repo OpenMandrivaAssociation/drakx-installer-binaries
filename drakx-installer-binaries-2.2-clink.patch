@@ -1,0 +1,53 @@
+--- drakx-installer-binaries-2.2/mdk-stage1/log.cpp.orig	2013-08-04 13:49:30.820309389 +0100
++++ drakx-installer-binaries-2.2/mdk-stage1/log.cpp	2013-08-04 13:49:58.000307801 +0100
+@@ -31,6 +31,8 @@
+ 
+ #include "log.h"
+ 
++extern "C" {
++
+ static FILE * logfile = NULL;
+ 
+ 
+@@ -81,3 +83,5 @@
+ 		fclose(logfile);
+ 	}
+ }
++
++}
+--- drakx-installer-binaries-2.2/mdk-stage1/log.h.orig	2013-08-04 13:47:32.033316330 +0100
++++ drakx-installer-binaries-2.2/mdk-stage1/log.h	2013-08-04 13:48:47.590311915 +0100
+@@ -25,10 +25,18 @@
+ 
+ #include <stdarg.h>
+ 
++#ifdef __cplusplus
++extern "C" {
++#endif
++
+ void log_message(const char * s, ...) __attribute__ ((format (printf, 1, 2)));
+ void vlog_message(const char * s, va_list args);
+ void log_perror(const char *msg);
+ void open_log(void);
+ void close_log(void);
+ 
++#ifdef __cplusplus
++}
++#endif
++
+ #endif
+--- drakx-installer-binaries-2.2/mdk-stage1/pcmcia/probe.cpp.orig	2013-08-04 13:46:59.700318219 +0100
++++ drakx-installer-binaries-2.2/mdk-stage1/pcmcia/probe.cpp	2013-08-03 14:02:31.505229105 +0100
+@@ -412,6 +412,7 @@
+     
+ } /* tcic_probe */
+ 
++extern "C" {
+ const char * pcmcia_probe(void)
+ {
+ 	if (!pci_probe())
+@@ -425,3 +426,4 @@
+ 	else
+ 		return NULL;
+ }
++}
