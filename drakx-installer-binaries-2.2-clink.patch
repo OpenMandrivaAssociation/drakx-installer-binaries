@@ -36,17 +36,17 @@
 +#endif
 +
  #endif
---- drakx-installer-binaries-2.2/mdk-stage1/pcmcia/probe.cpp.orig	2013-08-04 13:46:59.700318219 +0100
-+++ drakx-installer-binaries-2.2/mdk-stage1/pcmcia/probe.cpp	2013-08-03 14:02:31.505229105 +0100
-@@ -412,6 +412,7 @@
-     
+--- drakx-installer-binaries-2.2/mdk-stage1/pcmcia/probe.cpp.orig	2013-04-01 08:46:36.000000000 +0100
++++ drakx-installer-binaries-2.2/mdk-stage1/pcmcia/probe.cpp	2013-08-04 14:00:23.714324597 +0100
+@@ -413,6 +413,7 @@
  } /* tcic_probe */
+ 
  
 +extern "C" {
  const char * pcmcia_probe(void)
  {
  	if (!pci_probe())
-@@ -425,3 +426,4 @@
+@@ -426,3 +427,4 @@
  	else
  		return NULL;
  }
