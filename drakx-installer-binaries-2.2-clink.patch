@@ -51,3 +51,16 @@
  		return NULL;
  }
 +}
+--- drakx-installer-binaries-2.2/mdk-stage1/pcmcia/pcmcia.h.orig	2013-08-04 14:09:59.367290963 +0100
++++ drakx-installer-binaries-2.2/mdk-stage1/pcmcia/pcmcia.h	2013-08-04 14:10:18.144289866 +0100
+@@ -15,7 +15,9 @@
+ #ifndef _PCMCIA_CARDMGR_INTERFACE_H_
+ #define _PCMCIA_CARDMGR_INTERFACE_H_
+ 
+-const char * pcmcia_probe(void);
++extern "C" {
++   const char * pcmcia_probe(void);
++}
+ void pcmcia_socket_startup(unsigned int socket_no);
+ 
+ #endif
