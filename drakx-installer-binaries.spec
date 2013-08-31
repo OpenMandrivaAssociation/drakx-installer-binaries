@@ -22,7 +22,9 @@ BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	flex byacc
 BuildRequires:	pkgconfig(liblzma)
+%ifnarch %arm
 BuildRequires:	grub2
+%endif
 BuildRequires:	gpm uclibc-gpm
 BuildRequires:	termcap
 BuildRequires:	linux_logo
