@@ -3,7 +3,7 @@
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
 Version:	2.6
-Release:	1
+Release:	2
 Source0:	%{name}-%{version}.tar.xz
 License:	GPLv2+
 Group:		Development/Other
@@ -28,6 +28,8 @@ BuildRequires:	gpm uclibc-gpm
 BuildRequires:	termcap
 BuildRequires:	linux_logo
 BuildRequires:  perl-MDK-Common
+# needed for getting /lib/modules/*/modules.alias
+BuildRequires:	kernel-nrjQL-desktop-latest
 
 #- not requiring the same version otherwise releasing drakx-installer-images takes a day
 #- (restore this when the build system can build a pack of packages)
