@@ -2,8 +2,8 @@
 
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
-Version:	2.3
-Release:	2
+Version:	2.6
+Release:	1
 Source0:	%{name}-%{version}.tar.xz
 Patch1:		drakx-installer-binaries-2.2-clink.patch
 License:	GPLv2+
@@ -53,10 +53,11 @@ Binaries needed to build the Mandriva Linux installer (DrakX).
 %doc mdk-stage1/NEWS
 %dir %{_libdir}/%{family}
 %dir %{_libdir}/%{family}/binaries
-%{_libdir}/%{family}/binaries/stage1
-%{_libdir}/%{family}/binaries/rescue-gui
 %{_libdir}/%{family}/binaries/dhcp-client
 %{_libdir}/%{family}/binaries/drvinst
 %{_libdir}/%{family}/binaries/lspcidrake
 %{_libdir}/%{family}/binaries/pcmcia_probe.o
 %{_libdir}/%{family}/binaries/probe-modules
+%{_libdir}/%{family}/binaries/reboot
+%{_libdir}/%{family}/binaries/rescue-gui
+%{_libdir}/%{family}/binaries/stage1
