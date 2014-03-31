@@ -3,9 +3,8 @@
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
 Version:	2.2
-Release:	6
+Release:	7
 Source0:	%{name}-%{version}.tar.xz
-Patch1:		drakx-installer-binaries-2.2-clink.patch
 License:	GPLv2+
 Group:		Development/Other
 Url:		http://wiki.mandriva.com/Tools/DrakX
@@ -40,7 +39,6 @@ Binaries needed to build the Mandriva Linux installer (DrakX).
 
 %prep
 %setup -q
-%patch1 -p1
 
 %build
 # default -gdwarf-4 breaks with -fwhole-program
