@@ -3,7 +3,7 @@
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
 Version:	2.7
-Release:	1
+Release:	2
 Source0:	%{name}-%{version}.tar.xz
 License:	GPLv2+
 Group:		Development/Other
@@ -44,8 +44,7 @@ Binaries needed to build the %{distribution} installer (DrakX).
 %setup -q
 
 %build
-# default -gdwarf-4 breaks with -fwhole-program
-%make -C mdk-stage1 LIBC=uclibc OPTFLAGS="%{uclibc_cxxflags} -gdwarf-3"
+%make -C mdk-stage1 LIBC=uclibc OPTFLAGS="%{uclibc_cxxflags}"
 
 %install
 %makeinstall_std -C mdk-stage1
