@@ -1,4 +1,5 @@
 %define	family	drakx-installer
+%bcond_without	uclibc
 
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
@@ -12,8 +13,11 @@ BuildRequires:	kernel
 BuildRequires:	ldetect-devel >= 0.9.1
 BuildRequires:	ldetect-lst >= 0.1.222
 BuildRequires:	ldetect-lst-devel
+%if %{with uclibc}
 BuildRequires:	uClibc-devel >= 0.9.33.2-3
 BuildRequires:	uClibc++
+BuildRequires:	uclibc-gpm
+%endif
 BuildRequires:	pkgconfig(libkmod)
 BuildRequires:	sysfsutils-devel
 BuildRequires:	newt-devel >= 0.52.14-6
@@ -21,10 +25,10 @@ BuildRequires:	pkgconfig(libpci)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	flex byacc
 BuildRequires:	pkgconfig(liblzma)
-%ifnarch %arm
+%ifnarch %armx
 BuildRequires:	grub2
 %endif
-BuildRequires:	gpm uclibc-gpm
+BuildRequires:	gpm
 BuildRequires:	termcap
 BuildRequires:	linux_logo
 BuildRequires:  perl-MDK-Common
@@ -42,7 +46,11 @@ Binaries needed to build the Mandriva Linux installer (DrakX).
 
 %build
 # default -gdwarf-4 breaks with -fwhole-program
+%if %{with uclibc}
 %make -C mdk-stage1 LIBC=uclibc OPTFLAGS="%{uclibc_cxxflags} -gdwarf-3"
+%else
+%make -C mdk-stage1
+%endif
 
 %install
 %makeinstall_std -C mdk-stage1
