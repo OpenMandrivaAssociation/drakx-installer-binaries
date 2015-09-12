@@ -4,7 +4,7 @@
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
 Version:	2.12
-Release:	2
+Release:	3
 Source0:	%{name}-%{version}.tar.xz
 License:	GPLv2+
 Group:		Development/Other
