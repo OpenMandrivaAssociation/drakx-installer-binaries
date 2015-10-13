@@ -1,10 +1,12 @@
+%define debug_package %{nil}
+
 %define	family	drakx-installer
-%bcond_without	uclibc
+%bcond_with	uclibc
 
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
-Version:	2.12
-Release:	3
+Version:	2.13
+Release:	1
 Source0:	%{name}-%{version}.tar.xz
 License:	GPLv2+
 Group:		Development/Other
@@ -34,7 +36,6 @@ BuildRequires:	linux_logo
 BuildRequires:  perl-MDK-Common
 # needed for getting /lib/modules/*/modules.alias
 BuildRequires:	kernel-nrjQL-desktop-latest
-BuildRequires:	distro-release-Moondrake
 
 #- not requiring the same version otherwise releasing drakx-installer-images takes a day
 #- (restore this when the build system can build a pack of packages)
@@ -48,7 +49,7 @@ Binaries needed to build the %{distribution} installer (DrakX).
 %setup -q
 
 %build
-%make -C mdk-stage1 LIBC=uclibc OPTFLAGS="%{uclibc_cxxflags}"
+%make -C mdk-stage1
 
 %install
 %makeinstall_std -C mdk-stage1
