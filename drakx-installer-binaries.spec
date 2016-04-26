@@ -1,12 +1,11 @@
 %define debug_package %{nil}
 
 %define	family	drakx-installer
-%bcond_with	uclibc
 
 Summary:	DrakX binaries
 Name:		drakx-installer-binaries
 Version:	2.13
-Release:	1
+Release:	2
 Source0:	%{name}-%{version}.tar.xz
 License:	GPLv2+
 Group:		Development/Other
@@ -16,11 +15,6 @@ BuildRequires:	ldetect-devel >= 0.9.1
 BuildRequires:	ldetect-lst >= 0.1.222
 BuildRequires:	ldetect-lst-devel
 BuildRequires:	pkgconfig(libtirpc)
-%if %{with uclibc}
-BuildRequires:	uClibc-devel >= 0.9.33.2-3
-BuildRequires:	uClibc++
-BuildRequires:	uclibc-gpm
-%endif
 BuildRequires:	pkgconfig(libkmod)
 BuildRequires:	sysfsutils-devel
 BuildRequires:	newt-devel >= 0.52.14-6
@@ -37,7 +31,6 @@ BuildRequires:	linux_logo
 BuildRequires:  perl-MDK-Common
 # needed for getting /lib/modules/*/modules.alias
 BuildRequires:	kernel-nrjQL-desktop-latest
-
 #- not requiring the same version otherwise releasing drakx-installer-images takes a day
 #- (restore this when the build system can build a pack of packages)
 Requires:	ldetect-lst
